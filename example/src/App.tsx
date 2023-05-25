@@ -24,6 +24,7 @@ const BottomTabs = () => {
       }}
     >
       <Tab.Screen {...webScreens.screens.WebviewInitial} />
+      <Tab.Screen {...webScreens.screens.Library} />
       <Tab.Screen
         name={Routes.NestedTabNative}
         component={NativeScreen}
@@ -38,12 +39,13 @@ const App: React.FC = () => {
 
   const handleVisitError = useCallback<OnErrorCallback>(
     (error) => {
+      console.log('error', error);
       const notLoggedIn = error.statusCode === 401;
       if (notLoggedIn) {
         navigation.navigate(Routes.SignIn, { path: 'signin' });
       }
     },
-    [navigation]
+    [navigation],
   );
 
   return (

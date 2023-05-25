@@ -14,18 +14,27 @@ export enum Routes {
   NestedTabWeb = 'NestedTabWeb',
   NestedTab = 'NestedTab',
   One = 'One',
+  Library = 'Library',
 }
 
 const webScreenConfig: WebScreenRuleConfig = {
-  baseURL: 'http://localhost:45678/',
+  baseURL: 'http://192.168.2.7:45678/',
   routes: {
     [Routes.BottomTabs]: {
       routes: {
         [Routes.WebviewInitial]: {
-          urlPattern: '',
-          title: 'React Native Web Screen',
+          urlPattern: 'library/collections',
+          title: 'Página Principal',
+        },
+        [Routes.Library]: {
+          urlPattern: 'library/collections1',
+          title: 'Biblioteca',
         },
       },
+    },
+    [Routes.Library]: {
+      urlPattern: 'library/collections2',
+      title: 'Biblioteca',
     },
     [Routes.New]: {
       urlPattern: 'new',
